@@ -4,6 +4,7 @@ theme = "hugo-notepadium"
 copyright = "Copyright © 2020 Apollo Zhu"
 
 languageCode = "zh-cn"
+defaultContentLanguage = "zh"
 hasCJKLanguage = true
 
 enableRobotsTXT = true
@@ -51,6 +52,10 @@ inlineToolId = ""
 # showTags = true             # /tags/
 
 # custom navigation items
+
+[[params.nav.custom]]
+title = "关于"
+url = "/about/"
 
 [[params.nav.custom]]
 title = "GitHub"
