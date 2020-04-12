@@ -10,7 +10,7 @@ Educational notes are short-form documentation attached to a diagnostic which ex
 
 When outputting diagnostics on the command line, educational notes will be printed after the main diagnostic body if enabled using the `-print-educational-notes` driver option. When presented in an IDE, it's expected they will be collapsed under a disclosure arrow, info button, or similar to avoid cluttering output.
 
-Educational notes should:
+教育文档应该：
 
 - Explain a single language concept. This makes them easy to reuse across related diagnostics and helps keep them clear, concise, and easy to understand.
 - Be written in unabbreviated English. These are longer-form messages compared to the main diagnostic, so there's no need to omit needless words and punctuation.
@@ -19,7 +19,7 @@ Educational notes should:
 - Include references to relevant chapters of _The Swift Programming Language_.
 - Be written in Markdown, but avoid excessive markup which negatively impacts the terminal UX.
 
-## Quick-Start Guide for Contributing New Educational Notes
+## 如何贡献新的（英文）教育文档
 
 Adding new educational notes is a great way to get familiar with the process of contributing to Swift, while also making a big impact!
 
@@ -35,4 +35,4 @@ To add a new educational note:
 6. If possible, rebuild the compiler and try recompiling your test program with `-print-educational-notes`. Your new note should appear after the diagnostic in the terminal.
 7. That's it! The new note is now ready to be submitted as a pull request on GitHub.
 
-If you run into any issues or have questions while following the steps above, feel free to post a question on the Swift forums or open a work-in-progress pull request on GitHub.
+如果你在完成上面步骤的时候遇到了困难或者有任何的问题，欢迎在 Swift 论坛发帖提问，或者在 GitHub 提交一个合并拉取请求草稿。
