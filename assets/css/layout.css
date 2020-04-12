@@ -20,6 +20,11 @@ p.note.title {
   font-size: x-large;
 }
 
+a.site.home {
+  display: flex;
+  align-items: center;
+}
+
 .article.markdown-body ol,
 .article.markdown-body ul {
   padding-left: 20px;
