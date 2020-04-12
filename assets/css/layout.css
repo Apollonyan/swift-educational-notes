@@ -58,10 +58,33 @@ a.site.home {
 }
 
 @media (max-width: 500px) {
+  span.site.name {
+    font-size: x-large;
+  }
+
+  p.note.title {
+    font-size: larger;
+  }
+
+  .note.list,
+  .article-container {
+    margin: 0 -10px;
+  }
+
   .note.list .item,
   .article-container {
     border-radius: 10px;
     margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 374px) {
+  span.site.name {
+    font-size: larger;
+  }
+
+  p.note.title {
+    font-size: large;
   }
 }
 
