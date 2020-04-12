@@ -1,0 +1,67 @@
+code,
+tt,
+kbd,
+samp {
+  white-space: nowrap;
+}
+
+pre code,
+pre tt,
+pre kbd,
+pre samp {
+  white-space: unset;
+}
+
+span.site.name {
+  font-size: xx-large;
+}
+
+p.note.title {
+  font-size: x-large;
+}
+
+.article.markdown-body ol,
+.article.markdown-body ul {
+  padding-left: 20px;
+}
+
+.article.markdown-body li+li {
+  margin-top: unset;
+}
+
+.note.list table tr th:first-child,
+.note.list table tr td:first-child {
+  width: 40%;
+}
+
+.note.list .item {
+  margin-bottom: 30px;
+}
+
+@media screen and (min-width: 1280px) {
+  .base-body {
+    max-width: 1020px;
+  }
+
+  .note.list .item {
+    padding: 20px 40px;
+  }
+
+  .article-container {
+    padding: 20px 80px;
+  }
+}
+
+@media (max-width: 500px) {
+  .note.list .item,
+  .article-container {
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .article-container {
+    background-color: #1f1f24;
+  }
+}

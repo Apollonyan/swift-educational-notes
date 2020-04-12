@@ -1,0 +1,63 @@
+baseURL = "https://apollozhu.github.io/swift-educational-notes"
+title = "Swift 错误诊断教育文档"
+theme = "hugo-notepadium"
+copyright = "Copyright © 2020 Apollo Zhu"
+
+languageCode = "zh-cn"
+hasCJKLanguage = true
+
+enableRobotsTXT = true
+
+# Enable Disqus
+disqusShortname = "apollonian"
+
+# Google Analytics
+googleAnalytics = "UA-72767473-2"
+
+[markup.highlight]
+codeFences = true
+noClasses = false
+
+[markup.goldmark.renderer]
+unsafe = true  # enable raw HTML in Markdown
+
+[params]
+style = "auto"  # default: auto. light: light theme, dark: dark theme, auto: based on system.
+# dateFormat = "Monday, January 2, 2006"  # if unset, default is "2006-01-02"
+logo = ""  # if you have a logo png
+# slogan = "100% JavaScript-free"
+license = "<a href=https://github.com/apple/swift/blob/master/LICENSE.txt target=_blank>Apache License Version 2.0</a>"  # CC License
+fullRss = true  # Puts entire HTML post into rss 'description' tag. If unset, default is false.
+
+[params.comments]
+enable = true  # En/Disable comments globally, default: false. You can always enable comments on per page.
+
+[params.math]
+enable = false  # optional: true, false. Enable globally, default: false. You can always enable math on per page.
+use = "katex"  # option: "katex", "mathjax". default: "katex"
+
+[params.syntax]
+use = "none"  # builtin: "prismjs", "hljs". "none" means Chroma
+theme = "xcode"
+darkTheme = "xcode-dark"  # apply this theme in dark mode
+
+[params.share]
+enable = false
+addThisId = ""
+inlineToolId = ""
+
+[params.nav]
+# showCategories = true       # /categories/
+# showTags = true             # /tags/
+
+# custom navigation items
+
+[[params.nav.custom]]
+title = "GitHub"
+url = "https://github.com/ApolloZhu/swift-educational-notes"
+
+
+# custom css
+
+[params.assets]
+css = ["css/layout.css"]
