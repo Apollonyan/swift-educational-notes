@@ -66,3 +66,6 @@ url = "https://github.com/ApolloZhu/swift-educational-notes"
 
 [params.assets]
 css = ["css/layout.css"]
+
+[permalinks]
+  post = "/:filename/"
