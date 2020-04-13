@@ -19,7 +19,7 @@
 </ul>
 <h2 id="如何贡献新的英文教育文档">如何贡献新的（英文）教育文档</h2>
 <p>Adding new educational notes is a great way to get familiar with the process of contributing to Swift, while also making a big impact!</p>
-<p>To add a new educational note:</p>
+<p>添加一个新教育文档的步骤如下：</p>
 <ol>
 <li>Follow the <a href="https://github.com/apple/swift#getting-sources-for-swift-and-related-projects"target="_blank">directions in the README</a> to checkout the Swift sources locally. Being able to build the Swift compiler is recommended, but not required, when contributing a new note.</li>
 <li>Identify a diagnostic to write an educational note for. To associate an educational note with a diagnostic name, you&rsquo;ll need to know its internal identifier. The easiest way to do this is to write a small program which triggers the diagnostic, and run it using the <code>-debug-diagnostic-names</code> compiler flag. This flag will cause the internal diagnostic identifier to be printed after the diagnostic message in square brackets.</li>
