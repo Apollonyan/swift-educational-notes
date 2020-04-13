@@ -4,6 +4,11 @@ date: 2019-11-07T21:18:07Z
 lastmod: 2020-03-27T22:29:48Z
 ---
 
+> 译者注：简单来说，如果普通的编译器会告诉你：
+> > “你的苹果掉地上了，要不尝试把它捡起来？”
+>
+> 那与之对应的教育文档就会是《万有引力简述》。
+
 ## 教育文档
 
 Educational notes are short-form documentation attached to a diagnostic which explain relevant language concepts. They are intended to further Swift's goal of progressive disclosure by providing a learning resource at the point of use when encountering an error message for the first time. 在极少数的情况下，他们还允许主要的诊断消息使用更专业的术语，而不用担心像“名义类型”（nominal type）这样的词会对新手不够友好。
@@ -12,12 +17,12 @@ When outputting diagnostics on the command line, educational notes will be print
 
 教育文档应该：
 
-- Explain a single language concept. This makes them easy to reuse across related diagnostics and helps keep them clear, concise, and easy to understand.
-- Be written in unabbreviated English. These are longer-form messages compared to the main diagnostic, so there's no need to omit needless words and punctuation.
-- Not generally exceed 3-4 paragraphs. Educational notes should be clear and easily digestible. Messages which are too long also have the potential to create UX issues on the command line.
-- Be accessible. Educational notes should be beginner friendly and avoid assuming unnecesary prior knowledge. The goal is not only to help users understand what a diagnostic is telling them, but also to turn errors and warnings into "teachable moments".
-- Include references to relevant chapters of _The Swift Programming Language_.
-- Be written in Markdown, but avoid excessive markup which negatively impacts the terminal UX.
+- 解释单个语言概念。This makes them easy to reuse across related diagnostics and helps keep them clear, concise, and easy to understand.
+- 使用完整的（英文）句子。比起主要的诊断信息，教育文档是更长的消息格式，因此没有比较省略字词或标点符号。
+- 一般不超过 3 至 4 个自然段。Educational notes should be clear and easily digestible. Messages which are too long also have the potential to create UX issues on the command line.
+- 应该简单易懂。Educational notes should be beginner friendly and avoid assuming unnecesary prior knowledge. The goal is not only to help users understand what a diagnostic is telling them, but also to turn errors and warnings into "teachable moments".
+- 包含《The Swift Programming Language》里相关章节的链接。
+- 使用 Markdown 格式编写，但避免使用多余的标记对命令行用户交互产生负面影响。
 
 ## 如何贡献新的（英文）教育文档
 
