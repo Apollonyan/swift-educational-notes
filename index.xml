@@ -1,25 +1,25 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Swift 错误诊断教育文档</title><link>/swift-educational-notes/</link><description>Recent content on Swift 错误诊断教育文档</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 2020 Apollo Zhu</copyright><lastBuildDate>Thu, 07 Nov 2019 21:18:07 +0000</lastBuildDate><atom:link href="/swift-educational-notes/index.xml" rel="self" type="application/rss+xml"/><item><title>Posts</title><link>/swift-educational-notes/post/</link><pubDate>Mon, 02 Mar 2020 03:21:08 +0000</pubDate><guid>/swift-educational-notes/post/</guid><description/><content:encoded></content:encoded></item><item><title>关于 Swift 错误诊断的教育文档</title><link>/swift-educational-notes/about/</link><pubDate>Thu, 07 Nov 2019 21:18:07 +0000</pubDate><guid>/swift-educational-notes/about/</guid><description>译者注：简单来说，如果普通的编译器会告诉你： “你的苹果掉地上了，要不尝试把它捡起来？” 那与之对应的教育文档就会是《万有引力简述》。 教育文档 Educational</description><content:encoded><![CDATA[<blockquote>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Swift 错误诊断教育注释</title><link>/swift-educational-notes/</link><description>Recent content on Swift 错误诊断教育注释</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 2020 Apollo Zhu</copyright><lastBuildDate>Thu, 07 Nov 2019 21:18:07 +0000</lastBuildDate><atom:link href="/swift-educational-notes/index.xml" rel="self" type="application/rss+xml"/><item><title>Posts</title><link>/swift-educational-notes/post/</link><pubDate>Mon, 02 Mar 2020 03:21:08 +0000</pubDate><guid>/swift-educational-notes/post/</guid><description/><content:encoded></content:encoded></item><item><title>关于 Swift 错误诊断的教育注释</title><link>/swift-educational-notes/about/</link><pubDate>Thu, 07 Nov 2019 21:18:07 +0000</pubDate><guid>/swift-educational-notes/about/</guid><description>译者注：简单来说，如果普通的编译器会告诉你： “你的苹果掉地上了，要不尝试把它捡起来？” 那与之对应的教育注释就会是《万有引力简述》。 教育注释 教</description><content:encoded><![CDATA[<blockquote>
 <p>译者注：简单来说，如果普通的编译器会告诉你：</p>
 <blockquote>
 <p>“你的苹果掉地上了，要不尝试把它捡起来？”</p>
 </blockquote>
-<p>那与之对应的教育文档就会是《万有引力简述》。</p>
+<p>那与之对应的教育注释就会是《万有引力简述》。</p>
 </blockquote>
-<h2 id="教育文档">教育文档</h2>
-<p>Educational notes are short-form documentation attached to a diagnostic which explain relevant language concepts. They are intended to further Swift&rsquo;s goal of progressive disclosure by providing a learning resource at the point of use when encountering an error message for the first time. 在极少数的情况下，他们还允许主要的诊断消息使用更专业的术语，而不用担心像“名义类型”（nominal type）这样的词会对新手不够友好。</p>
+<h2 id="教育注释">教育注释</h2>
+<p>教育注释是附在诊断中用于解释相关语言概念的简短文档。They are intended to further Swift&rsquo;s goal of progressive disclosure by providing a learning resource at the point of use when encountering an error message for the first time.在极少数的情况下，他们还允许主要的诊断消息使用更专业的术语，而不用担心像“名义类型”（nominal type）这样的词会对新手不够友好。</p>
 <p>When outputting diagnostics on the command line, educational notes will be printed after the main diagnostic body if enabled using the <code>-print-educational-notes</code> driver option. When presented in an IDE, it&rsquo;s expected they will be collapsed under a disclosure arrow, info button, or similar to avoid cluttering output.</p>
-<p>教育文档应该：</p>
+<p>教育注释应该：</p>
 <ul>
-<li>解释单个语言概念。This makes them easy to reuse across related diagnostics and helps keep them clear, concise, and easy to understand.</li>
-<li>使用完整的（英文）句子。比起主要的诊断信息，教育文档是更长的消息格式，因此没有比较省略字词或标点符号。</li>
+<li>解释单个语言概念。这样就能把它们在多个诊断之间共享，并保持清楚、简洁、明了。</li>
+<li>使用完整的（英文）句子。和主要的诊断信息相比，教育注释为更长的格式，因此没有比较省略字词或标点符号。</li>
 <li>一般不超过 3 至 4 个自然段。Educational notes should be clear and easily digestible. Messages which are too long also have the potential to create UX issues on the command line.</li>
 <li>应该简单易懂。Educational notes should be beginner friendly and avoid assuming unnecesary prior knowledge. The goal is not only to help users understand what a diagnostic is telling them, but also to turn errors and warnings into &ldquo;teachable moments&rdquo;.</li>
 <li>包含《The Swift Programming Language》里相关章节的链接。</li>
-<li>使用 Markdown 格式编写，但避免使用多余的标记对命令行用户交互产生负面影响。</li>
+<li>使用 Markdown 格式编写，但避免使用多余的标记对终端用户体验产生负面影响。</li>
 </ul>
-<h2 id="如何贡献新的英文教育文档">如何贡献新的（英文）教育文档</h2>
+<h2 id="如何贡献新的英文教育注释">如何贡献新的（英文）教育注释</h2>
 <p>Adding new educational notes is a great way to get familiar with the process of contributing to Swift, while also making a big impact!</p>
-<p>添加一个新教育文档的步骤如下：</p>
+<p>添加一个新教育注释的步骤如下：</p>
 <ol>
 <li>Follow the <a href="https://github.com/apple/swift#getting-sources-for-swift-and-related-projects"target="_blank">directions in the README</a> to checkout the Swift sources locally. Being able to build the Swift compiler is recommended, but not required, when contributing a new note.</li>
 <li>Identify a diagnostic to write an educational note for. To associate an educational note with a diagnostic name, you&rsquo;ll need to know its internal identifier. The easiest way to do this is to write a small program which triggers the diagnostic, and run it using the <code>-debug-diagnostic-names</code> compiler flag. This flag will cause the internal diagnostic identifier to be printed after the diagnostic message in square brackets.</li>
