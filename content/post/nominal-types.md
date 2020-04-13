@@ -4,9 +4,9 @@ date: 2019-11-02T20:48:38Z
 summary: "
 |诊断名称|错误信息|\n
 |--|--|\n
-|`non_nominal_`<wbr>`no_`<wbr>`initializers`|non-nominal type `X` does not support explicit initialization|\n
-|`non_nominal_`<wbr>`extension`|non-nominal type `X` cannot be extended|\n
-|`associated_type_`<wbr>`witness_`<wbr>`conform_`<wbr>`impossible`|candidate can not infer `X` = `Y` because `Y` is not a nominal type and so can't conform to `Z`|
+|<code>non_nominal_<wbr>no_<wbr>initializers</code>|non-nominal type `X` does not support explicit initialization|\n
+|<code>non_nominal_<wbr>extension</code>|non-nominal type `X` cannot be extended|\n
+|<code>associated_type_<wbr>witness_<wbr>conform_<wbr>impossible</code>|candidate can not infer `X` = `Y` because `Y` is not a nominal type and so can't conform to `Z`|
 "
 ---
 

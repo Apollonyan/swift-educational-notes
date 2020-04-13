@@ -4,7 +4,7 @@ date: 2019-12-04T21:37:11Z
 summary: "
 |诊断名称|错误信息|\n
 |--|--|\n
-|`cannot_`<wbr>`infer_`<wbr>`closure_`<wbr>`result_`<wbr>`type`|unable to infer [complex] closure return type; add explicit type to disambiguate|
+|<code>cannot_<wbr>infer_<wbr>closure_<wbr>result_<wbr>type</code>|unable to infer [complex] closure return type; add explicit type to disambiguate|
 "
 draft: true
 ---

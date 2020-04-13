@@ -4,7 +4,7 @@ date: 2020-03-02T03:21:08Z
 summary: "
 |诊断名称|错误信息|\n
 |--|--|\n
-|`unsupported_`<wbr>`existential_`<wbr>`type`|protocol `X` can only be used as a generic constraint because it has `Self` or associated type requirements|
+|<code>unsupported_<wbr>existential_<wbr>type</code>|protocol `X` can only be used as a generic constraint because it has `Self` or associated type requirements|
 "
 ---
 
@@ -21,7 +21,7 @@ func bar<T: CustomStringConvertible>(baz: T) { /* ... */ }
 func baz() -> some CustomStringConvertible { /* ... */ }
 ```
 
-虽然 Swift 中所有的协议都可以被用作泛型约束以及不透明类型的一部分，但并不是所有的协议都能被用作类型。准确地说，如果一个协议的要求中使用了 `Self` 或者关联类型，那么它就不能被作为类型使用。`Identifiable` 就是这样的一个例子：其 `var id: ID { get }` 这个要求使用了 `ID` 这个关联类型。因此，下面这段代码是不能编译的：
+虽然 Swift 中所有的协议都可以被用作泛型约束以及不透明类型的一部分，但并不是所有的协议都能被用作类型。准确地说，如果一个协议的要求中使用了 `Self` 或者关联类型，那么它就不能被作为类型使用。`Identifiable` 就是这样的一个例子：其 `var id: ID { get }` 这个要求使用了关联类型 `ID`。因此，下面这段代码是不能编译的：
 
 ```swift
 func foo(bar: Identifiable) { /* ... */ }

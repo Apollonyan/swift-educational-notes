@@ -4,8 +4,8 @@ date: 2020-01-13T02:08:37Z
 summary: "
 |诊断名称|错误信息|\n
 |--|--|\n
-|`invalid_`<wbr>`dynamic_callable_`<wbr>`type`|`@dynamicCallable` attribute requires `X` to have either a valid `dynamicallyCall(withArguments:)` method or `dynamicallyCall(withKeywordArguments:)` method|\n
-|`missing_`<wbr>`dynamic_callable_`<wbr>`kwargs_`<wbr>`method`|`@dynamicCallable` type `X` cannot be applied with keyword arguments; missing `dynamicCall(withKeywordArguments:)` method|
+|<code>invalid_<wbr>dynamic_callable_<wbr>type</code>|`@dynamicCallable` attribute requires `X` to have either a valid `dynamicallyCall(withArguments:)` method or `dynamicallyCall(withKeywordArguments:)` method|\n
+|<code>missing_<wbr>dynamic_callable_<wbr>kwargs_<wbr>method</code>|`@dynamicCallable` type `X` cannot be applied with keyword arguments; missing `dynamicCall(withKeywordArguments:)` method|
 "
 draft: true
 ---

@@ -36,7 +36,7 @@ Adding new educational notes is a great way to get familiar with the process of 
     - An entry in a `Diagnostics*.def` file describing the diagnostic. If there are any closely related diagnostics the note should also be attached to, they can usually be found nearby.
     - Each point in the compiler source where the diagnostic is emitted. This can be helpful in determining the exact circumstances which cause it to be emitted.
 4. Add a new Markdown file in the [`userdocs/diagnostics/`](https://github.com/apple/swift/tree/master/userdocs/diagnostics) directory in the swift repository containing the contents of the note. When writing a note, keep the writing guidelines from the section above in mind. The existing notes in the directory are another useful guide.
-5. Associate the note with the appropriate diagnostics in `EducationalNotes.def`. An entry like `EDUCATIONAL_NOTES(property_wrapper_failable_init, "property-wrapper-requirements.md")` will associate the note with filename `property-wrapper-requirements.md` with the diagnostic having an internal identifier of `property_wrapper_failable_init`.
+5. Associate the note with the appropriate diagnostics in `EducationalNotes.def`. An entry like <code>EDUCATIONAL_NOTES(<wbr>property_wrapper_failable_init, <wbr>"property-wrapper-requirements.md")</code> will associate the note with filename `property-wrapper-requirements.md` with the diagnostic having an internal identifier of `property_wrapper_failable_init`.
 6. If possible, rebuild the compiler and try recompiling your test program with `-print-educational-notes`. Your new note should appear after the diagnostic in the terminal.
 7. That's it! The new note is now ready to be submitted as a pull request on GitHub.
 
