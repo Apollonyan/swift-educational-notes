@@ -1,4 +1,31 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Posts on Swift 错误诊断教育文档</title><link>/swift-educational-notes/post/</link><description>Recent content in Posts on Swift 错误诊断教育文档</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 2020 Apollo Zhu</copyright><lastBuildDate>Sat, 02 Nov 2019 20:48:38 +0000</lastBuildDate><atom:link href="/swift-educational-notes/post/index.xml" rel="self" type="application/rss+xml"/><item><title>名义类型（nominal type）</title><link>/swift-educational-notes/nominal-types/</link><pubDate>Sat, 02 Nov 2019 20:48:38 +0000</pubDate><guid>/swift-educational-notes/nominal-types/</guid><description>&lt;table>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Posts on Swift 错误诊断教育文档</title><link>/swift-educational-notes/post/</link><description>Recent content in Posts on Swift 错误诊断教育文档</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 2020 Apollo Zhu</copyright><lastBuildDate>Mon, 02 Mar 2020 03:21:08 +0000</lastBuildDate><atom:link href="/swift-educational-notes/post/index.xml" rel="self" type="application/rss+xml"/><item><title>使用要求带有 `Self` 或关联类型的协议</title><link>/swift-educational-notes/associated-type-requirements/</link><pubDate>Mon, 02 Mar 2020 03:21:08 +0000</pubDate><guid>/swift-educational-notes/associated-type-requirements/</guid><description>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>诊断名称&lt;/th>
+&lt;th>错误信息&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>unsupported_&lt;/code>&lt;wbr>&lt;code>existential_&lt;/code>&lt;wbr>&lt;code>type&lt;/code>&lt;/td>
+&lt;td>protocol &lt;code>X&lt;/code> can only be used as a generic constraint because it has &lt;code>Self&lt;/code> or associated type requirements&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description><content:encoded><![CDATA[<p>在 Swift 语言中，协议可以被用作类型，作为泛型约束，又或是不透明类型的一部分：</p>
+<div class="highlight"><pre class="chroma"><code class="language-swift" data-lang="swift"><span class="c1">// CustomStringConvertible 可以被用作一个类型，</span>
+<span class="kd">func</span> <span class="nf">foo</span><span class="p">(</span><span class="n">bar</span><span class="p">:</span> <span class="n">CustomStringConvertible</span><span class="p">)</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">}</span>
+
+<span class="c1">// ……或作为对泛型 &#39;T&#39; 的约束，</span>
+<span class="kd">func</span> <span class="nf">bar</span><span class="p">&lt;</span><span class="n">T</span><span class="p">:</span> <span class="n">CustomStringConvertible</span><span class="p">&gt;(</span><span class="n">baz</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">}</span>
+
+<span class="c1">// ……或作为不透明类型的一部分。</span>
+<span class="kd">func</span> <span class="nf">baz</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="n">some</span> <span class="n">CustomStringConvertible</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">}</span>
+</code></pre></div><p>虽然所有 Swift 中的协议可以被用作泛型约束以及不透明类型的一部分，但并不是所有的协议都能被用作类型。准确地说，如果一个协议的要求中使用了 <code>Self</code> 或者关联类型，那么它就不能被作为类型使用。<code>Identifiable</code> 就是这样的一个例子：其 <code>var id: ID { get }</code> 这个要求中使用了 <code>ID</code> 这个关联类型。因此，下面这段代码是不能编译的：</p>
+<div class="highlight"><pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">foo</span><span class="p">(</span><span class="n">bar</span><span class="p">:</span> <span class="n">Identifiable</span><span class="p">)</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">}</span>
+<span class="c1">// error: protocol &#39;Identifiable&#39; can only be used as a generic constraint because it has Self or associated type requirements</span>
+</code></pre></div><p>之所以像 <code>Identifiable</code> 这样要求有 <code>Self</code> 或者关联类型的协议不能被用作类型，是因为那样的类型实际上一般并没有什么用处。对于 <code>var id: ID { get }</code> 这样有 <code>Self</code> 或者关联类型的要求，既然我们并不知道其中的关联类型具体是什么，那自然也就无法使用。</p>
+<p>在使用被 <code>Self</code> 或者关联类型要求约束的泛型协议时，不透明类型或者自己实现类型擦除能够解决大多数的问题。欲知详情，请参阅《The Swift Programming Language》中 <a href="https://swiftgg.gitbook.io/swift/swift-jiao-cheng/21_protocols"target="_blank">协议</a>、<a href="https://swiftgg.gitbook.io/swift/swift-jiao-cheng/22_generics"target="_blank">泛型</a> 和 <a href="https://swiftgg.gitbook.io/swift/swift-jiao-cheng/23_opaque_types"target="_blank">不透明类型</a> 这些章节。</p>
+]]></content:encoded></item><item><title>名义类型（nominal type）</title><link>/swift-educational-notes/nominal-types/</link><pubDate>Sat, 02 Nov 2019 20:48:38 +0000</pubDate><guid>/swift-educational-notes/nominal-types/</guid><description>&lt;table>
 &lt;thead>
 &lt;tr>
 &lt;th>诊断名称&lt;/th>
@@ -23,5 +50,5 @@
 <p>任何不是名义类型的类型都是非名义类型（non-nominal type），那它们相对应的也就没有这些功能。因为非名义类型一般是通过组合其他类型得来的，所以偶尔也会被称为结构类型（structural type）。非名义类型包括像 <code>(Int) -&gt; (String)</code> 这样的函数类型、<code>(Int, String)</code> 这样的枚举类型、<code>Int.Type</code> 这样的元类型（metatype）和 <code>Any</code> 以及 <code>AnyObject</code> 这样的特殊类型。</p>
 <p>一个协议是否为名义类型，取决于它出现在什么地方。当在被定义，以及像 <code>extension 某个协议 { ... }</code> 这样被扩展时，<code>某个协议</code> 是一个具体的协议类型，因此它是名义类型，可以被扩展、可以遵循协议。然而，当被用作常量或变量的类型时，<code>某个协议</code> 其实替代了一个非名义但实际存在（existential）的类型。这就导致</p>
 <div class="highlight"><pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">value</span><span class="p">:</span> <span class="err">某个协议</span> <span class="p">=</span> <span class="err">某个协议</span><span class="p">()</span>
-</code></pre></div><p>这样的代码是没法编译的。因为 <code>某个协议</code> 在这里是个非名义类型，所以它不能在等号右边被直接初始化。</p>
+</code></pre></div><p>这样的代码是没法编译的。因为在这种情景下 <code>某个协议</code> 是非名义类型，所以它不能被直接初始化。</p>
 ]]></content:encoded></item></channel></rss>
