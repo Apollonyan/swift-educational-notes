@@ -10,6 +10,7 @@ pre tt,
 pre kbd,
 pre samp {
   white-space: unset;
+  font-size: 1.2em;
 }
 
 span.site.name {
