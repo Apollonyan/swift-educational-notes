@@ -28,7 +28,7 @@ When outputting diagnostics on the command line, educational notes will be print
 
 Adding new educational notes is a great way to get familiar with the process of contributing to Swift, while also making a big impact!
 
-To add a new educational note:
+添加一个新教育文档的步骤如下：
 
 1. Follow the [directions in the README](https://github.com/apple/swift#getting-sources-for-swift-and-related-projects) to checkout the Swift sources locally. Being able to build the Swift compiler is recommended, but not required, when contributing a new note.
 2. Identify a diagnostic to write an educational note for. To associate an educational note with a diagnostic name, you'll need to know its internal identifier. The easiest way to do this is to write a small program which triggers the diagnostic, and run it using the `-debug-diagnostic-names` compiler flag. This flag will cause the internal diagnostic identifier to be printed after the diagnostic message in square brackets.
