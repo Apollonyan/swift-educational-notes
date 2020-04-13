@@ -1,7 +1,7 @@
 baseURL = "https://apollozhu.github.io/swift-educational-notes"
 title = "Swift 错误诊断教育注释"
 theme = "hugo-notepadium"
-copyright = "Copyright © 2020 Apollo Zhu"
+copyright = "Copyright © 2020 <a href=https://apollozhu.github.io>Apollo Zhu</a>"
 
 languageCode = "zh-cn"
 defaultContentLanguage = "zh"
