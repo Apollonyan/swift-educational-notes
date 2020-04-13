@@ -65,7 +65,7 @@ url = "https://github.com/ApolloZhu/swift-educational-notes"
 # custom css
 
 [params.assets]
-css = ["css/layout.css"]
+css = ["css/custom.css"]
 
 [permalinks]
   post = "/:filename/"
