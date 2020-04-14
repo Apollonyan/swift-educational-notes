@@ -25,6 +25,45 @@
 <span class="c1">// error: protocol &#39;Identifiable&#39; can only be used as a generic constraint because it has Self or associated type requirements</span>
 </code></pre></div><p>之所以像 <code>Identifiable</code> 这样要求使用 <code>Self</code> 或者关联类型的协议不能被用作类型，是因为那样的类型实际上一般并没有什么用处。对于 <code>var id: ID { get }</code> 这样有 <code>Self</code> 或者关联类型的要求，既然我们并不知道其中的关联类型具体是什么，那自然也就无法使用。</p>
 <p>在处理被 <code>Self</code> 或者关联类型要求约束的泛型协议时，使用不透明类型或者自己实现类型擦除能解决大多数的问题。欲知详情，请参阅《The Swift Programming Language》中 <a href="https://swiftgg.gitbook.io/swift/swift-jiao-cheng/21_protocols"target="_blank">协议</a>、<a href="https://swiftgg.gitbook.io/swift/swift-jiao-cheng/22_generics"target="_blank">泛型</a> 和 <a href="https://swiftgg.gitbook.io/swift/swift-jiao-cheng/23_opaque_types"target="_blank">不透明类型</a> 这些章节。</p>
+]]></content:encoded></item><item><title>属性包装器的实现要求</title><link>/swift-educational-notes/property-wrapper-requirements/</link><pubDate>Fri, 28 Feb 2020 04:00:06 +0000</pubDate><guid>/swift-educational-notes/property-wrapper-requirements/</guid><description>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>诊断名称&lt;/th>
+&lt;th>错误信息&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>property_wrapper_&lt;wbr>no_&lt;wbr>value_&lt;wbr>property&lt;/code>&lt;/td>
+&lt;td>property wrapper type &lt;code>X&lt;/code> does not contain a non-static property named &lt;code>Y&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>property_wrapper_&lt;wbr>wrong_&lt;wbr>initial_&lt;wbr>value_&lt;wbr>init&lt;/code>&lt;/td>
+&lt;td>&lt;code>X&lt;/code> parameter type (&lt;code>Y&lt;/code>) must be the same as its &lt;code>wrappedValue&lt;/code> property type &lt;code>Z&lt;/code> or an &lt;code>@autoclosure&lt;/code> thereof&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>property_wrapper_&lt;wbr>failable_&lt;wbr>init&lt;/code>&lt;/td>
+&lt;td>property wrapper initializer &lt;code>X&lt;/code> cannot be failable&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>property_wrapper_&lt;wbr>type_&lt;wbr>requirement_&lt;wbr>not_&lt;wbr>accessible&lt;/code>&lt;/td>
+&lt;td>[&lt;code>private&lt;/code>/&lt;code>fileprivate&lt;/code>/&lt;code>internal&lt;/code>/&lt;code>public&lt;/code>/&lt;code>open&lt;/code>] &lt;code>XXX Y&lt;/code> cannot have more restrictive access than its enclosing property wrapper type &lt;code>Z&lt;/code> (which is [&lt;code>private&lt;/code>/&lt;code>fileprivate&lt;/code>/&lt;code>internal&lt;/code>/&lt;code>public&lt;/code>/&lt;code>open&lt;/code>])&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description><content:encoded><![CDATA[<p>如果一个类型用修饰符<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> <code>@propertyWrapper</code> 标记，那它还必须满足一定的条件才会是有效的属性包装器。</p>
+<p>首先，所有的属性包装器类型都必须要有一个叫做 <code>wrappedValue</code> 的属性。这个属性不能是静态的，而且至少要有和属性包装器类型相同的访问级别。属性包装器的 <code>projectedValue</code> 属性（如果有的话）也会受到如此限制。</p>
+<p>其次，属性包装器不能有可失败的构造器<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>。另外，如果属性包装器的构造器有一个 <code>wrappedValue</code> 参数，那这个参数的类型必须和 <code>wrappedValue</code> 属性相同，又或者是返回那个类型的 <code>@autoclosure</code>。</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>attribute，又译作“特性”。 <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>initializer，又译作“初始化器”。 <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
 ]]></content:encoded></item><item><title>推断闭包类型</title><link>/swift-educational-notes/complex-closure-inference/</link><pubDate>Wed, 04 Dec 2019 21:37:11 +0000</pubDate><guid>/swift-educational-notes/complex-closure-inference/</guid><description>&lt;table>
 &lt;thead>
 &lt;tr>
