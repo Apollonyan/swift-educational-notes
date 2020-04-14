@@ -1,5 +1,5 @@
 ---
-title: "`@dynamicCallable` Implementation Requirements"
+title: "`@dynamicCallable` 的实现要求"
 date: 2020-01-13T02:08:37Z
 summary: "
 |诊断名称|错误信息|\n
