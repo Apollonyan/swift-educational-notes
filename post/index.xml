@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Posts on Swift 错误诊断教育注释</title><link>/swift-educational-notes/post/</link><description>Recent content in Posts on Swift 错误诊断教育注释</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 2020 &lt;a href=https://apollozhu.github.io>Apollo Zhu&lt;/a></copyright><lastBuildDate>Mon, 02 Mar 2020 03:21:08 +0000</lastBuildDate><atom:link href="/swift-educational-notes/post/index.xml" rel="self" type="application/rss+xml"/><item><title>使用要求带有 `Self` 或关联类型的协议</title><link>/swift-educational-notes/associated-type-requirements/</link><pubDate>Mon, 02 Mar 2020 03:21:08 +0000</pubDate><guid>/swift-educational-notes/associated-type-requirements/</guid><description>&lt;table>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Posts on Swift 错误诊断教育性注释</title><link>/swift-educational-notes/post/</link><description>Recent content in Posts on Swift 错误诊断教育性注释</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 2020 &lt;a href=https://apollozhu.github.io>Apollo Zhu&lt;/a></copyright><lastBuildDate>Mon, 02 Mar 2020 03:21:08 +0000</lastBuildDate><atom:link href="/swift-educational-notes/post/index.xml" rel="self" type="application/rss+xml"/><item><title>使用要求带有 `Self` 或关联类型的协议</title><link>/swift-educational-notes/associated-type-requirements/</link><pubDate>Mon, 02 Mar 2020 03:21:08 +0000</pubDate><guid>/swift-educational-notes/associated-type-requirements/</guid><description>&lt;table>
 &lt;thead>
 &lt;tr>
 &lt;th>诊断名称&lt;/th>
@@ -52,7 +52,7 @@
 &lt;/tbody>
 &lt;/table></description><content:encoded><![CDATA[<p>如果用修饰符<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> <code>@propertyWrapper</code> 标记一个类型，那它还必须满足一定的条件才会是有效的属性包装器。</p>
 <p>首先，所有的属性包装器类型都必须要有一个叫做 <code>wrappedValue</code> 的属性。这个属性不能是静态的，而且至少要有和属性包装器类型相同的访问级别。属性包装器的 <code>projectedValue</code> 属性（如果有的话）也会受到如此限制。</p>
-<p>其次，属性包装器不能有可失败的构造器<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>。另外，如果属性包装器的构造器有一个 <code>wrappedValue</code> 参数，那这个参数的类型必须和 <code>wrappedValue</code> 属性相同，又或者是返回那个类型的 <code>@autoclosure</code>。</p>
+<p>其次，属性包装器不能有可失败的构造器<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>。另外，如果属性包装器的构造器有一个 <code>wrappedValue</code> 参数，那这个参数的类型必须和属性 <code>wrappedValue</code> 的类型相同，又或者是返回那个类型的 <code>@autoclosure</code>。</p>
 <section class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
@@ -158,7 +158,7 @@
 &lt;td>candidate can not infer &lt;code>X&lt;/code> = &lt;code>Y&lt;/code> because &lt;code>Y&lt;/code> is not a nominal type and so can&amp;rsquo;t conform to &lt;code>Z&lt;/code>&lt;/td>
 &lt;/tr>
 &lt;/tbody>
-&lt;/table></description><content:encoded><![CDATA[<p>在 Swift 语言中，名义类型（nominal type）是指有名字的类型。换言之，它是在代码里某个地方通过声明这个类型来定义的。举个例子，名义类型包含所有的类、结构体和枚举类型；它们都需要先定义才能使用。而名义类型之所以特别，是因为他们能够被扩展，通过 <code>类型名称()</code> 直接初始化，还能够遵循协议。</p>
+&lt;/table></description><content:encoded><![CDATA[<p>在 Swift 语言中，名义类型（nominal type）是指有名字的类型。换言之，它是在代码里某个地方通过声明这个类型来定义的。举个例子，名义类型包含所有的类、结构体和枚举类型；它们都需要先定义才能使用。而名义类型之所以特别，是因为它们能够被扩展，通过 <code>类型名称()</code> 直接初始化，还能够遵循协议。</p>
 <p>任何不是名义类型的类型都是非名义类型（non-nominal type），那它们相对应的也就没有这些功能。因为非名义类型一般是通过组合其他类型得来的，所以偶尔也会被称为结构类型（structural type）。非名义类型包括像 <code>(Int) -&gt; (String)</code> 这样的函数类型、<code>(Int, String)</code> 这样的枚举类型、<code>Int.Type</code> 这样的元类型（metatype）和 <code>Any</code> 以及 <code>AnyObject</code> 这样的特殊类型。</p>
 <p>一个协议是否为名义类型，取决于它出现在什么地方。当在被定义，以及像 <code>extension 某个协议 { ... }</code> 这样被扩展时，<code>某个协议</code> 是一个具体的协议类型，因此它是名义类型，可以被扩展、可以遵循协议。然而，当被用作常量或变量的类型时，<code>某个协议</code> 其实替代了一个非名义但实际存在（existential）的类型。这就导致</p>
 <div class="highlight"><pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">value</span><span class="p">:</span> <span class="err">某个协议</span> <span class="p">=</span> <span class="err">某个协议</span><span class="p">()</span>
