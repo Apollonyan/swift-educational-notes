@@ -1,4 +1,10 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Swift 错误诊断教育性注释</title><link>/swift-educational-notes/</link><description>Recent content on Swift 错误诊断教育性注释</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 2020 &lt;a href=https://apollozhu.github.io>Apollo Zhu&lt;/a></copyright><lastBuildDate>Thu, 07 Nov 2019 21:18:07 +0000</lastBuildDate><atom:link href="/swift-educational-notes/index.xml" rel="self" type="application/rss+xml"/><item><title>Posts</title><link>/swift-educational-notes/post/</link><pubDate>Mon, 02 Mar 2020 03:21:08 +0000</pubDate><guid>/swift-educational-notes/post/</guid><description/><content:encoded></content:encoded></item><item><title>关于 Swift 错误诊断的教育性注释</title><link>/swift-educational-notes/about/</link><pubDate>Thu, 07 Nov 2019 21:18:07 +0000</pubDate><guid>/swift-educational-notes/about/</guid><description>译者注：简单来说，如果普通的编译器会告诉你： “你的苹果掉地上了，要不尝试把它捡起来？” 那与之对应的教育性注释就会是《万有引力简述》。 教育性注</description><content:encoded><![CDATA[<blockquote>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Swift 错误诊断教育性注释</title><link>/swift-educational-notes/</link><description>Recent content on Swift 错误诊断教育性注释</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 2020 &lt;a href=https://apollozhu.github.io>Apollo Zhu&lt;/a></copyright><lastBuildDate>Thu, 07 Nov 2019 21:18:07 +0000</lastBuildDate><atom:link href="/swift-educational-notes/index.xml" rel="self" type="application/rss+xml"/><item><title>Posts</title><link>/swift-educational-notes/post/</link><pubDate>Mon, 02 Mar 2020 03:21:08 +0000</pubDate><guid>/swift-educational-notes/post/</guid><description/><content:encoded></content:encoded></item><item><title>关于 Swift 错误诊断的教育性注释</title><link>/swift-educational-notes/about/</link><pubDate>Thu, 07 Nov 2019 21:18:07 +0000</pubDate><guid>/swift-educational-notes/about/</guid><description>&lt;blockquote>
+&lt;p>译者注：简单来说，如果普通的编译器会告诉你：&lt;/p>
+&lt;blockquote>
+&lt;p>“你的苹果掉地上了，要不尝试把它捡起来？”&lt;/p>
+&lt;/blockquote>
+&lt;p>那与之对应的教育性注释就会是《万有引力简述》。&lt;/p>
+&lt;/blockquote></description><content:encoded><![CDATA[<blockquote>
 <p>译者注：简单来说，如果普通的编译器会告诉你：</p>
 <blockquote>
 <p>“你的苹果掉地上了，要不尝试把它捡起来？”</p>
@@ -33,5 +39,4 @@
 <li>If possible, rebuild the compiler and try recompiling your test program with <code>-print-educational-notes</code>. Your new note should appear after the diagnostic in the terminal.</li>
 <li>That&rsquo;s it! The new note is now ready to be submitted as a pull request on GitHub.</li>
 </ol>
-<p>如果你在完成上面步骤的时候遇到了困难或者有任何的问题，欢迎在 Swift 论坛发帖提问，或者用半成品在 GitHub 提交一个合并拉取请求草稿。</p>
-]]></content:encoded></item></channel></rss>
+<p>如果你在完成上面步骤的时候遇到了困难或者有任何的问题，欢迎在 Swift 论坛发帖提问，或者用半成品在 GitHub 提交一个合并拉取请求草稿。</p>]]></content:encoded></item></channel></rss>
