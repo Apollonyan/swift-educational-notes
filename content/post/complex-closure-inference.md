@@ -1,27 +1,26 @@
 ---
-title: "Inferring Closure Types"
+title: "推断闭包类型"
 date: 2019-12-04T21:37:11Z
 summary: "
 |诊断名称|错误信息|\n
 |--|--|\n
 |<code>cannot_<wbr>infer_<wbr>closure_<wbr>result_<wbr>type</code>|unable to infer [complex] closure return type; add explicit type to disambiguate|
 "
-draft: true
 ---
 
-If a closure contains a single expression, Swift will consider its body in addition to its signature and the surrounding context when performing type inference. For example, in the following code the type of `doubler` is inferred to be `(Int) -> Int` using only its body:
+如果闭包里只有一个表达式，Swift 会利用闭包的函数体、签名和上下文来进行类型推断。比如下面这段代码里，仅使用 `翻倍` 的函数体即可将其类型推断为 `(Int) -> Int`：
 
 ```swift
-let doubler = {
+let 翻倍 = {
   $0 * 2
 }
 ```
 
-If a closure body is not a single expression, it will not be considered when inferring the closure type. This is consistent with how type inference works in other parts of the language, where it proceeds one statement at a time. For example, in the following code an error will be reported because the type of `evenDoubler` cannot be inferred from its surrounding context and no signature was provided:
+但对于不是单个表达式的闭包，其函数体就不会被用于类型推断。这和 Swift 语言其他部分的类型推断方法是一致的：一次处理一条语句。例如下面这段代码就会报错，因为既无法通过 `偶数翻倍` 的上下文推断类型，也没有提供闭包的签名：
 
 ```swift
 // error: unable to infer complex closure return type; add explicit type to disambiguate
-let evenDoubler = { x in
+let 偶数翻倍 = { x in
   if x.isMultiple(of: 2) {
     return x * 2
   } else {
@@ -30,18 +29,18 @@ let evenDoubler = { x in
 }
 ```
 
-This can be fixed by providing additional contextual information:
+要解决这个问题，我们可以在上下文提供额外的信息：
 
 ```swift
-let evenDoubler: (Int) -> Int = { x in
- // ...
+let 偶数翻倍: (Int) -> Int = { x in
+  // ...
 }
 ```
 
-Or by giving the closure an explicit signature:
+或者写明闭包的签名：
 
 ```swift
-let evenDoubler = { (x: Int) -> Int in
- // ...
+let 偶数翻倍 = { (x: Int) -> Int in
+  // ...
 }
 ```
