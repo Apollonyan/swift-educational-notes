@@ -1,0 +1,31 @@
+<section class="article header">
+    <h1 class="article title">{{- .Title | markdownify | safeHTML -}}</h1>
+    {{- $dateFormat := site.Params.dateFormat -}}
+    {{- if not $dateFormat -}}{{- $dateFormat = "2006-01-02" -}}{{- end -}}
+    {{- $lastmodFormat := "" -}}
+    {{- $lastmod := .Lastmod -}}
+    {{- if $lastmod -}}
+        {{- $lastmodFormat = $lastmod.Format $dateFormat -}}
+    {{- end -}}
+    {{- if .Date -}}
+        {{- $dateFormat := .Date.Format $dateFormat -}}
+        <p class="article date">{{- $dateFormat -}}
+            {{- if and ($lastmod.After .Date) (ne $lastmodFormat $dateFormat) -}}
+                <span class="lastmod">{{- printf (T "edited") $lastmodFormat -}}</span>
+            {{- end -}}
+            {{- if or (eq .Params.readingTime true) (and (not (eq .Params.readingTime false)) (eq site.Params.readingTime true)) -}}
+            <span class="reading-time">{{ T "readingTime" .ReadingTime }}</span>
+            {{- end -}}
+            <span class="langs">
+                <span class="lang"><a href="
+                    {{ if .Params.swiftURL }}
+                        {{ .Params.swiftURL }}
+                    {{ else }}
+                        https://github.com/apple/swift/blob/master/userdocs/diagnostics/{{ .File.TranslationBaseName }}.md
+                    {{ end }}
+                    "
+                    target="_blank">英文原文</a></span>
+            </span>
+        </p>
+    {{- end -}}
+</section>

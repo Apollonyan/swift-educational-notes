@@ -2,6 +2,7 @@
 title: "关于 Swift 错误诊断的教育注释"
 date: 2019-11-07T21:18:07Z
 lastmod: 2020-03-27T22:29:48Z
+swiftURL: https://github.com/apple/swift/blob/master/docs/Diagnostics.md#educational-notes
 ---
 
 > 译者注：简单来说，如果普通的编译器会告诉你：
