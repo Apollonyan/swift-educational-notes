@@ -50,7 +50,7 @@
 &lt;td>[&lt;code>private&lt;/code>/&lt;code>fileprivate&lt;/code>/&lt;code>internal&lt;/code>/&lt;code>public&lt;/code>/&lt;code>open&lt;/code>] &lt;code>XXX Y&lt;/code> cannot have more restrictive access than its enclosing property wrapper type &lt;code>Z&lt;/code> (which is [&lt;code>private&lt;/code>/&lt;code>fileprivate&lt;/code>/&lt;code>internal&lt;/code>/&lt;code>public&lt;/code>/&lt;code>open&lt;/code>])&lt;/td>
 &lt;/tr>
 &lt;/tbody>
-&lt;/table></description><content:encoded><![CDATA[<p>如果一个类型用修饰符<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> <code>@propertyWrapper</code> 标记，那它还必须满足一定的条件才会是有效的属性包装器。</p>
+&lt;/table></description><content:encoded><![CDATA[<p>如果用修饰符<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> <code>@propertyWrapper</code> 标记一个类型，那它还必须满足一定的条件才会是有效的属性包装器。</p>
 <p>首先，所有的属性包装器类型都必须要有一个叫做 <code>wrappedValue</code> 的属性。这个属性不能是静态的，而且至少要有和属性包装器类型相同的访问级别。属性包装器的 <code>projectedValue</code> 属性（如果有的话）也会受到如此限制。</p>
 <p>其次，属性包装器不能有可失败的构造器<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>。另外，如果属性包装器的构造器有一个 <code>wrappedValue</code> 参数，那这个参数的类型必须和 <code>wrappedValue</code> 属性相同，又或者是返回那个类型的 <code>@autoclosure</code>。</p>
 <section class="footnotes" role="doc-endnotes">
@@ -61,6 +61,45 @@
 </li>
 <li id="fn:2" role="doc-endnote">
 <p>initializer，又译作“初始化器”。 <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+]]></content:encoded></item><item><title>`@dynamicCallable` 的实现要求</title><link>/swift-educational-notes/dynamic-callable-requirements/</link><pubDate>Mon, 13 Jan 2020 02:08:37 +0000</pubDate><guid>/swift-educational-notes/dynamic-callable-requirements/</guid><description>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>诊断名称&lt;/th>
+&lt;th>错误信息&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>invalid_&lt;wbr>dynamic_callable_&lt;wbr>type&lt;/code>&lt;/td>
+&lt;td>&lt;code>@dynamicCallable&lt;/code> attribute requires &lt;code>X&lt;/code> to have either a valid &lt;code>dynamicallyCall(withArguments:)&lt;/code> method or &lt;code>dynamicallyCall(withKeywordArguments:)&lt;/code> method&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>missing_&lt;wbr>dynamic_callable_&lt;wbr>kwargs_&lt;wbr>method&lt;/code>&lt;/td>
+&lt;td>&lt;code>@dynamicCallable&lt;/code> type &lt;code>X&lt;/code> cannot be applied with keyword arguments; missing &lt;code>dynamicCall(withKeywordArguments:)&lt;/code> method&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description><content:encoded><![CDATA[<p>如果用修饰符<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> <code>@dynamicCallable</code> 标记一个类型，那它还必须要实现 <code>dynamicallyCall(withArguments:)</code> 和/或 <code>dynamicallyCall(withKeywordArguments:)</code> 方法，否则会导致编译错误。需要注意的是，必须要实现 <code>dynamicallyCall(withKeywordArguments:)</code> 才能在调用时使用关键字参数/实际参数标签。</p>
+<p>有效的 <code>dynamicallyCall(withArguments:)</code> 实现必须：</p>
+<ul>
+<li>是一个实例方法，而不是 <code>static</code> 或者 <code>class</code> 方法。</li>
+<li>接受一个类型遵循 <code>ExpressibleByArrayLiteral</code> 协议的参数——通常这会是 Swift 自带的 <code>Array</code> 类型。</li>
+<li>返回一个有效的类型。</li>
+</ul>
+<p>有效的 <code>dynamicallyCall(withKeywordArguments:)</code> 实现必须：</p>
+<ul>
+<li>是一个实例方法，而不是 <code>static</code> 或者 <code>class</code> 方法。</li>
+<li>接受一个类型遵循 <code>ExpressibleByDictionaryLiteral</code> 协议的参数。这个可以是 <code>Dictionary</code>、<code>KeyValuePairs</code>（用于支持重复的关键字参数）或者其他遵循该协议的类型。</li>
+<li>让参数类型的关联类型 <code>Key</code> 遵循 <code>ExpressibleByStringLiteral</code> 协议。这个会是参数关键字的类型。</li>
+<li>让参数类型的关联类型 <code>Value</code> 以及返回类型为有效的类型。</li>
+</ul>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>attribute，又译作“特性”。 <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </section>
