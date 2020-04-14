@@ -13,7 +13,9 @@
 <meta property="og:site_name" content="{{ $ogSite }}">
 <meta property="og:title" content="{{ $ogTitle }}">
 
-{{ if and (ne $ogTitle "") (ne $ogTitle $ogSite) }}
+{{ if .Truncated }}
+    <meta property="og:description" content="{{ .Summary | plainify }}">
+{{ else if and (ne $ogTitle "") (ne $ogTitle $ogSite) }}
     <meta property="og:description" content="{{ $ogSite }}">
 {{ end }}
 
