@@ -25,7 +25,41 @@
 <span class="c1">// error: protocol &#39;Identifiable&#39; can only be used as a generic constraint because it has Self or associated type requirements</span>
 </code></pre></div><p>之所以像 <code>Identifiable</code> 这样要求使用 <code>Self</code> 或者关联类型的协议不能被用作类型，是因为那样的类型实际上一般并没有什么用处。对于 <code>var id: ID { get }</code> 这样有 <code>Self</code> 或者关联类型的要求，既然我们并不知道其中的关联类型具体是什么，那自然也就无法使用。</p>
 <p>在处理被 <code>Self</code> 或者关联类型要求约束的泛型协议时，使用不透明类型或者自己实现类型擦除能解决大多数的问题。欲知详情，请参阅《The Swift Programming Language》中 <a href="https://swiftgg.gitbook.io/swift/swift-jiao-cheng/21_protocols"target="_blank">协议</a>、<a href="https://swiftgg.gitbook.io/swift/swift-jiao-cheng/22_generics"target="_blank">泛型</a> 和 <a href="https://swiftgg.gitbook.io/swift/swift-jiao-cheng/23_opaque_types"target="_blank">不透明类型</a> 这些章节。</p>
-]]></content:encoded></item><item><title>名义类型（nominal type）</title><link>/swift-educational-notes/nominal-types/</link><pubDate>Sat, 02 Nov 2019 20:48:38 +0000</pubDate><guid>/swift-educational-notes/nominal-types/</guid><description>&lt;table>
+]]></content:encoded></item><item><title>推断闭包类型</title><link>/swift-educational-notes/complex-closure-inference/</link><pubDate>Wed, 04 Dec 2019 21:37:11 +0000</pubDate><guid>/swift-educational-notes/complex-closure-inference/</guid><description>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>诊断名称&lt;/th>
+&lt;th>错误信息&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>cannot_&lt;wbr>infer_&lt;wbr>closure_&lt;wbr>result_&lt;wbr>type&lt;/code>&lt;/td>
+&lt;td>unable to infer [complex] closure return type; add explicit type to disambiguate&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description><content:encoded><![CDATA[<p>如果闭包里只有一个表达式，Swift 会利用闭包的函数体、签名和上下文来进行类型推断。比如下面这段代码里，仅使用 <code>翻倍</code> 的函数体即可将其类型推断为 <code>(Int) -&gt; Int</code>：</p>
+<div class="highlight"><pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="err">翻倍</span> <span class="p">=</span> <span class="p">{</span>
+  <span class="nv">$0</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="p">}</span>
+</code></pre></div><p>但对于不是单个表达式的闭包，其函数体就不会被用于类型推断。这和 Swift 语言其他部分的类型推断方法是一致的：一次处理一条语句。例如下面这段代码就会报错，因为既无法通过 <code>偶数翻倍</code> 的上下文推断类型，也没有提供闭包的签名：</p>
+<div class="highlight"><pre class="chroma"><code class="language-swift" data-lang="swift"><span class="c1">// error: unable to infer complex closure return type; add explicit type to disambiguate</span>
+<span class="kd">let</span> <span class="err">偶数翻倍</span> <span class="p">=</span> <span class="p">{</span> <span class="n">x</span> <span class="k">in</span>
+  <span class="k">if</span> <span class="n">x</span><span class="p">.</span><span class="n">isMultiple</span><span class="p">(</span><span class="n">of</span><span class="p">:</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">x</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>要解决这个问题，我们可以在上下文提供额外的信息：</p>
+<div class="highlight"><pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="err">偶数翻倍</span><span class="p">:</span> <span class="p">(</span><span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">=</span> <span class="p">{</span> <span class="n">x</span> <span class="k">in</span>
+  <span class="c1">// ...</span>
+<span class="p">}</span>
+</code></pre></div><p>或者写明闭包的签名：</p>
+<div class="highlight"><pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="err">偶数翻倍</span> <span class="p">=</span> <span class="p">{</span> <span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="k">in</span>
+  <span class="c1">// ...</span>
+<span class="p">}</span>
+</code></pre></div>]]></content:encoded></item><item><title>名义类型（nominal type）</title><link>/swift-educational-notes/nominal-types/</link><pubDate>Sat, 02 Nov 2019 20:48:38 +0000</pubDate><guid>/swift-educational-notes/nominal-types/</guid><description>&lt;table>
 &lt;thead>
 &lt;tr>
 &lt;th>诊断名称&lt;/th>
