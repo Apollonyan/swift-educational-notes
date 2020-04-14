@@ -10,6 +10,8 @@ swiftURL: https://github.com/apple/swift/blob/master/docs/Diagnostics.md#educati
 >
 > 那与之对应的教育性注释就会是《万有引力简述》。
 
+<!--more-->
+
 ## 教育性注释
 
 教育性注释是附在诊断中用于解释相关语言概念的简短文档，通过在第一次遇到错误信息时提供学习资料来达到帮助逐渐揭秘 Swift 的目标。在极少数的情况下，它们还允许主要的诊断消息使用更专业的术语，而不用担心像“名义类型”（nominal type）这样的词会对新手不够友好。
