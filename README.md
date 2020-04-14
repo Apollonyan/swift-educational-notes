@@ -1,3 +1,3 @@
-# Swift Educational Notes
+# Swift 错误诊断教育性注释翻译
 
-Swift 诊断错误信息教育注释翻译 | diagnostics educational notes in zh-Hans
+> Swift Diagnostics Educational Notes in zh-Hans
