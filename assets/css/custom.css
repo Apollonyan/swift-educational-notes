@@ -96,6 +96,10 @@ a.site.home {
 }
 
 @media (prefers-color-scheme: dark) {
+  img.site.logo {
+    opacity: 0.85;
+  }
+
   .article-container {
     background-color: #1f1f24;
   }
