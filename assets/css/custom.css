@@ -5,6 +5,13 @@ samp {
   white-space: nowrap;
 }
 
+a > code,
+a > tt,
+a > kbd,
+a > samp {
+  font-style: italic;
+}
+
 pre code,
 pre tt,
 pre kbd,
