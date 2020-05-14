@@ -103,7 +103,7 @@
 </li>
 </ol>
 </section>
-]]></content:encoded></item><item><title>推断闭包类型</title><link>/swift-educational-notes/complex-closure-inference/</link><pubDate>Wed, 04 Dec 2019 21:37:11 +0000</pubDate><guid>/swift-educational-notes/complex-closure-inference/</guid><description>&lt;table>
+]]></content:encoded></item><item><title>闭包类型推断</title><link>/swift-educational-notes/complex-closure-inference/</link><pubDate>Wed, 04 Dec 2019 21:37:11 +0000</pubDate><guid>/swift-educational-notes/complex-closure-inference/</guid><description>&lt;table>
 &lt;thead>
 &lt;tr>
 &lt;th>诊断名称&lt;/th>
