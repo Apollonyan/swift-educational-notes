@@ -25,6 +25,6 @@ In addition to its formal requirements, `init(literalCapacity:interpolationCount
 
 If `appendInterpolation` is overloaded, the Swift compiler will choose an appropriate overload using the labels and argument types of each interpolation. When choosing an overload, any accessible `appendInterpolation` instance method may be used, even if it does not meet all of the requirements above. However, if a `StringInterpolationProtocol` conformer doesn't have any `appendInterpolation` methods which meet all of the requirements, an error will be reported at compile time.
 
-欲了解更多关于如何修改字符串插值行为的方法，请参阅 [`ExpressibleByStringInterpolation`](https://developer.apple.com/documentation/swift/expressiblebystringinterpolation) 和 [`StringInterpolationProtocol`](https://developer.apple.com/documentation/swift/stringinterpolationprotocol) 协议的标准资料库文档。
+欲了解更多修改字符串插值行为的方法，请参阅 [`ExpressibleByStringInterpolation`](https://developer.apple.com/documentation/swift/expressiblebystringinterpolation) 和 [`StringInterpolationProtocol`](https://developer.apple.com/documentation/swift/stringinterpolationprotocol) 协议的标准资料库文档。
 
 [^1]: attribute，又译作“特性”。

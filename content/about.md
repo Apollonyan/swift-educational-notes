@@ -8,7 +8,7 @@ swiftURL: https://github.com/apple/swift/blob/master/docs/Diagnostics.md#educati
 > 译者注：简单来说，如果普通的编译器会告诉你：
 > > “你的苹果掉地上了，要不尝试把它捡起来？”
 >
-> 那与之对应的教育性注释就会是《万有引力简述》。
+> 那与之对应的教育性注释就是<strong>《万有引力简述》</strong>。
 
 <!--more-->
 
