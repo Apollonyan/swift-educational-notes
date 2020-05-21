@@ -3,7 +3,7 @@
 > Swift Diagnostics Educational Notes in zh-Hans
 
 <details>
-<summary><a href="https://apollozhu.github.io/swift-educational-notes/">在线阅读</a></summary>
+<summary><a href="https://Apollonyan.github.io/swift-educational-notes/">在线阅读</a></summary>
 
 [英文原版](https://github.com/apple/swift/tree/master/userdocs/diagnostics)
 

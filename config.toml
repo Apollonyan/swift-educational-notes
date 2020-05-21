@@ -1,7 +1,7 @@
-baseURL = "https://apollozhu.github.io/swift-educational-notes"
+baseURL = "https://Apollonyan.github.io/swift-educational-notes"
 title = "Swift 错误诊断教育性注释"
 theme = "hugo-notepadium"
-copyright = "Copyright © 2020 <a href=https://apollozhu.github.io>Apollo Zhu</a>"
+copyright = "Copyright © 2020 <a href=https://Apollonyan.github.io>Apollo Zhu & Apollonyan</a>"
 
 languageCode = "zh-cn"
 defaultContentLanguage = "zh"
@@ -59,7 +59,7 @@ url = "/about/"
 
 [[params.nav.custom]]
 title = "GitHub"
-url = "https://github.com/ApolloZhu/swift-educational-notes"
+url = "https://github.com/Apollonyan/swift-educational-notes"
 
 
 # custom css
